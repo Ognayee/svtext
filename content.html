@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>Benerite | </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <style>
+        .audio span {
+            cursor: pointer;
+            color: crimson;
+            font-weight: bold;
+        }
+
+        .audio {
+            color: #333;
+            font-size: 18px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="audio">
+        <h2><b>Click the Highlighted Text to play audio</b></h2>
+
+        Listen to what Sophie says to Marius. <span audio="audio\1278_AV_1.mp3" start=00:00:04.971 end=00:00:07.961>She's
+            talking
+            about her journey to work</span> on her first day, and she's thinking about how to travel into the city.
+        Listen for
+        the words she uses about travelling: traffic, crowded, noisy, modern. <span audio="audio\1278_AV_1.mp3"
+            start=00:00:26.257 end=00:00:30.366>What is she talking about when she uses these words?</span> Then use the
+        information to write an
+        email to her friend Jackie.
+
+        <span audio="audio\1279_AV_1.mp3" start=00:00:00.431 end=00:00:05.856>Read the text about travelling into and around
+            the
+            city.</span> What are the different ways you can travel in a city if you don't go by car? What's the most
+        popular
+        way in your city? Many people go by bus or train, but many people also go into town with their bikes, because
+        the
+        traffic is bad. What do you do?
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        var oldsrc = '';
+
+        $(document).ready(function () {
+            debugger;
+            $('.audio span').click(function () {
+                var audio = new Audio($(this).attr('audio') + '#t=' + $(this).attr('start') + ',' + $(this).attr('end'));
+                audio.onloadedmetadata = function () {
+                    audio.play();
+                };
+            });
+
+          
+
+        });
+
+
+
+    </script>
+</body>
+
+
+</html>
