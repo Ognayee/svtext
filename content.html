@@ -46,26 +46,27 @@
         traffic is bad. What do you do?
 
     </div>
+	<audio id="audio" style="display:none;" autoplay controls src="" type="audio/mpeg"></audio>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script>
-        var oldsrc = '';
-
         $(document).ready(function () {
-            debugger;
+            //debugger;
             $('.audio span').click(function () {
-                var audio = new Audio($(this).attr('audio') + '#t=' + $(this).attr('start') + ',' + $(this).attr('end'));
-                audio.onloadedmetadata = function () {
-                    audio.play();
-                };
+				var myAudio = document.getElementById('audio');
+				var playing_src = $('#audio').attr('src');
+				var to_play_src = $(this).attr('audio') + '#t=' + $(this).attr('start') + ',' + $(this).attr('end');
+				if (myAudio.duration > 0 && !myAudio.paused) {
+					if(playing_src == to_play_src){
+						myAudio.pause();
+					}else{
+						$('#audio').attr('src',to_play_src);
+					}
+				} else {
+					$('#audio').attr('src',to_play_src);
+				}
             });
-
-          
-
         });
-
-
-
     </script>
 </body>
 
